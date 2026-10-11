@@ -16,22 +16,26 @@ export async function runTests(
   const tempDir = path.join(process.cwd(), "temp-tests");
   fs.mkdirSync(tempDir, { recursive: true });
 
-  // Jest
+  // Jest (JavaScript & TypeScript)
   if (
-    language === "javascript" &&
+    (language === "javascript" || language === "typescript") &&
     testingFramework === "jest"
   ) {
-    const codePath = path.join(tempDir, "source.js");
-    const testPath = path.join(tempDir, "source.test.js");
+    const ext = language === "typescript" ? "ts" : "js";
+    const codePath = path.join(tempDir, `source.${ext}`);
+    const testPath = path.join(tempDir, `source.test.${ext}`);
 
     fs.writeFileSync(codePath, code);
     fs.writeFileSync(testPath, tests);
 
     try {
-      const { stdout, stderr } = await execAsync(
-        `npx jest "${testPath}" --runInBand`,
-        { cwd: tempDir }
-      );
+      // Vitest has built-in Jest-compatible globals and runs TypeScript natively
+      const cmd =
+        language === "typescript"
+          ? `npx vitest run "${testPath}" --globals`
+          : `npx jest "${testPath}" --runInBand`;
+
+      const { stdout, stderr } = await execAsync(cmd, { cwd: tempDir });
 
       return parseTestResult(`${stdout}\n${stderr}`);
     } catch (error: any) {
@@ -49,13 +53,14 @@ export async function runTests(
     }
   }
 
-  // Vitest
+  // Vitest (JavaScript & TypeScript)
   if (
-    language === "javascript" &&
+    (language === "javascript" || language === "typescript") &&
     testingFramework === "vitest"
   ) {
-    const codePath = path.join(tempDir, "source.js");
-    const testPath = path.join(tempDir, "source.test.js");
+    const ext = language === "typescript" ? "ts" : "js";
+    const codePath = path.join(tempDir, `source.${ext}`);
+    const testPath = path.join(tempDir, `source.test.${ext}`);
 
     fs.writeFileSync(codePath, code);
     fs.writeFileSync(testPath, tests);

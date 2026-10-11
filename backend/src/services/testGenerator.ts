@@ -49,6 +49,14 @@ For JavaScript with Vitest:
 - Do not use Jest globals or require().
 - Do not invent a different source filename.
 
+For TypeScript with Jest or Vitest:
+- Assume the source code will be saved as "source.ts".
+- Import functions from "./source".
+- If using Vitest, import: import { describe, test, it, expect } from "vitest";
+- If using Jest, use describe(), test(), it(), expect().
+- Include TypeScript types/interfaces where applicable.
+- Do not invent a different source filename.
+
 
 For Python with Pytest:
 - Assume the source code will be saved as "source.py".
