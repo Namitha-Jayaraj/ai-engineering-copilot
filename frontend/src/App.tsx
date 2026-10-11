@@ -80,7 +80,8 @@ type SessionDetail = {
 // API helpers
 // ─────────────────────────────────────────────────────────────
 
-const API_BASE = (import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:5001";
+const rawBase = (import.meta as any).env?.VITE_API_BASE_URL || "http://localhost:5001";
+const API_BASE = String(rawBase).replace(/\/+$/, "");
 
 async function postJson(
   endpoint: string,

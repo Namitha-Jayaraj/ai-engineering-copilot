@@ -24,6 +24,11 @@ import {
 const app = express();
 
 app.use(cors());
+app.use((req, _res, next) => {
+  // Normalize redundant slashes (e.g. //api/github/pr -> /api/github/pr)
+  req.url = req.url.replace(/\/{2,}/g, "/");
+  next();
+});
 app.use(express.json({ limit: "2mb" }));
 
 // ─────────────────────────────────────────────────────────────
