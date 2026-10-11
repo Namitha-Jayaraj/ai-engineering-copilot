@@ -867,8 +867,6 @@ function App() {
   // ─────────────────────────────────────────────────────────
 
   const issues = result?.issues || [];
-  const securityIssues = result?.securityIssues || [];
-  const performanceIssues = result?.performanceIssues || [];
   const suggestedTests = result?.tests || [];
 
   const fileExt =
@@ -1223,14 +1221,14 @@ function App() {
                       <span className="metric-caption">Review findings</span>
                     </div>
                     <div className="metric-card">
-                      <span className="metric-label">Security</span>
-                      <strong>{securityIssues.length}</strong>
-                      <span className="metric-caption">Security findings</span>
+                      <span className="metric-label">Quality Score</span>
+                      <strong>{result.score}/100</strong>
+                      <span className="metric-caption">Health index</span>
                     </div>
                     <div className="metric-card">
-                      <span className="metric-label">Performance</span>
-                      <strong>{performanceIssues.length}</strong>
-                      <span className="metric-caption">Optimization hints</span>
+                      <span className="metric-label">Test Ideas</span>
+                      <strong>{Math.min(suggestedTests.length, 4)}</strong>
+                      <span className="metric-caption">Suggested cases</span>
                     </div>
                   </div>
                 </section>
@@ -1296,38 +1294,6 @@ function App() {
                   )}
                 </section>
 
-                {securityIssues.length > 0 && (
-                  <section className="result-section">
-                    <div className="section-title-row">
-                      <div>
-                        <span className="section-kicker">SECURITY</span>
-                        <h3>Security findings</h3>
-                      </div>
-                    </div>
-                    <div className="compact-finding-list">
-                      {securityIssues.map((item, index) => (
-                        <CompactFinding key={index} text={item} />
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-                {performanceIssues.length > 0 && (
-                  <section className="result-section">
-                    <div className="section-title-row">
-                      <div>
-                        <span className="section-kicker">OPTIMIZATION</span>
-                        <h3>Performance findings</h3>
-                      </div>
-                    </div>
-                    <div className="compact-finding-list">
-                      {performanceIssues.map((item, index) => (
-                        <CompactFinding key={index} text={item} />
-                      ))}
-                    </div>
-                  </section>
-                )}
-
                 {suggestedTests.length > 0 && (
                   <section className="result-section">
                     <div className="section-title-row">
@@ -1335,9 +1301,12 @@ function App() {
                         <span className="section-kicker">COVERAGE IDEAS</span>
                         <h3>Suggested test cases</h3>
                       </div>
+                      <span className="subtle-count">
+                        {Math.min(suggestedTests.length, 4)} ideas
+                      </span>
                     </div>
                     <div className="compact-finding-list">
-                      {suggestedTests.map((item, index) => (
+                      {suggestedTests.slice(0, 4).map((item, index) => (
                         <CompactFinding key={index} text={item} />
                       ))}
                     </div>

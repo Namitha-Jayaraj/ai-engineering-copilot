@@ -33,7 +33,7 @@ For a full review, check:
 2. Security vulnerabilities
 3. Performance problems
 4. Code quality issues
-5. Missing or useful test cases
+5. Missing or useful test cases (provide strictly 3 to 4 high-value test cases)
 
 For focused review modes, prioritize the requested area.
 
