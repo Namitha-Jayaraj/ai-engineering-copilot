@@ -962,7 +962,7 @@ function App() {
         </div>
       </header>
 
-      {activeTab === "pullrequests" ? (
+      <div style={{ display: activeTab === "pullrequests" ? "block" : "none" }}>
         <GitHubPrReviewer
           onLoadIntoEditor={(newCode, newLang) => {
             setCode(newCode);
@@ -978,15 +978,18 @@ function App() {
           postJson={postJson}
           getJson={getJson}
         />
-      ) : activeTab === "dashboard" ? (
+      </div>
+
+      <div style={{ display: activeTab === "dashboard" ? "block" : "none" }}>
         <QualityDashboard
           onLoadSession={handleLoadSession}
           onSwitchToWorkspace={() => setActiveTab("workspace")}
           getJson={getJson}
           deleteRequest={deleteRequest}
         />
-      ) : (
-        <main className="workspace">
+      </div>
+
+      <main className="workspace" style={{ display: activeTab === "workspace" ? "grid" : "none" }}>
         {/* ── Left: Editor panel ── */}
         <section className="editor-panel panel">
           <div className="panel-heading">
@@ -1557,7 +1560,6 @@ function App() {
           </div>
         </section>
       </main>
-      )}
 
       <footer className="app-footer">
         <span>AI Engineering Copilot</span>

@@ -120,8 +120,8 @@ export default function GitHubPrReviewer({
       .then((data) => {
         if (data.samples) {
           setSamples(data.samples);
-          // Auto-load first sample as starting point
-          if (data.samples.length > 0) {
+          // Auto-load first sample as starting point only if no PR is currently loaded
+          if (!pr && data.samples.length > 0) {
             handleLoadSample(data.samples[0].id);
           }
         }
