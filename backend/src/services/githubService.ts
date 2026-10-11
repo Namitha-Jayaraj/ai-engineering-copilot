@@ -367,7 +367,7 @@ export async function postPrComment(
     headers: {
       Accept: "application/vnd.github.v3+json",
       Authorization: `Bearer ${token}`,
-      "Content-Agent": "AI-Engineering-Copilot/1.0",
+      "User-Agent": "AI-Engineering-Copilot/1.0",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ body }),
