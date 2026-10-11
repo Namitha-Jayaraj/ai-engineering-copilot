@@ -5,7 +5,7 @@
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev/)
 [![Express](https://img.shields.io/badge/Express-5.x-000000?logo=express)](https://expressjs.com/)
 [![SQLite](https://img.shields.io/badge/SQLite-WAL%20Mode-003B57?logo=sqlite)](https://www.sqlite.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?logo=vite)](https://vitejs.dev/)
+[![CI Pipeline](https://github.com/Namitha-Jayaraj/ai-engineering-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/Namitha-Jayaraj/ai-engineering-copilot/actions)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -134,7 +134,7 @@ sequenceDiagram
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/your-username/ai-engineering-copilot.git
+git clone https://github.com/Namitha-Jayaraj/ai-engineering-copilot.git
 cd ai-engineering-copilot
 
 # 2. Configure Backend
