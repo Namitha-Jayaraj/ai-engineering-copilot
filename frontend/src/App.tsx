@@ -896,7 +896,13 @@ function App() {
       {/* Top bar */}
       <header className="topbar">
         <div className="brand">
-          <div className="brand-mark">AI</div>
+          <div className="brand-mark" aria-label="AI Engineering Copilot Logo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+          </div>
           <div>
             <h1>Engineering Copilot</h1>
             <p>Code review · Fixes · Testing</p>
