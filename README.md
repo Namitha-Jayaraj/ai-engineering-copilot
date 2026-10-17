@@ -92,19 +92,6 @@ sequenceDiagram
     end
 ```
 
----
-
-## 📄 Resume Bullet Points (Ready to Copy)
-
-> **Full-Stack AI Software Engineer | AI Engineering Copilot**
-> * **Architected and delivered an autonomous code review & repair platform** using TypeScript, React 19, Express, and Monaco Editor, reducing manual code audit time by 60%.
-> * **Designed a self-healing testing feedback loop** that executes generated Jest/Pytest suites in a sandbox, parses failure stack traces with LLM reasoning, and autonomously iterates on patches until green.
-> * **Integrated GitHub REST API for live Pull Request auditing**, ingesting multi-file git diffs, computing a 0–100 Risk Score, assigning executive verdicts (`APPROVE`/`REQUEST_CHANGES`), and publishing automated review comments.
-> * **Engineered low-latency telemetry storage** using SQLite in WAL mode with `better-sqlite3`, persisting sessions and powering an interactive Recharts analytics dashboard tracking defects across security, performance, and reliability.
-> * **Containerized full-stack architecture** with multi-stage Dockerfiles and Nginx SPA routing for lightweight deployment across cloud container platforms.
-
----
-
 ## 🔌 API Reference
 
 | Method | Endpoint | Description | Request Payload | Response |
